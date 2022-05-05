@@ -15,7 +15,7 @@ import nz.co.logicons.tlp.core.mongo.MongoDatastore;
 import nz.co.logicons.tlp.core.mongo.TransformOperation;
 
 @RestController
-@RequestMapping(API.VERSIONED_PATH + "/sampleCommand")
+@RequestMapping(API.VERSIONED_PATH + "/sample")
 public class SampleController
 {
   @Autowired

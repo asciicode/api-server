@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(API.VERSIONED_PATH + "/distanceLog")
+@RequestMapping(API.VERSIONED_PATH + "/test-conference")
 public class ConferenceController
 {
   @GetMapping(value = "/about")

@@ -2,8 +2,10 @@ package nz.co.logicons.tlp.api.resourceserver.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
+import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
 
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.Module;
@@ -13,10 +15,11 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerMethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
-  // @Override
-  // protected MethodSecurityExpressionHandler createExpressionHandler() {
-  // return new OAuth2MethodSecurityExpressionHandler();
-  // }
+  @Override
+  protected MethodSecurityExpressionHandler createExpressionHandler()
+  {
+    return new OAuth2MethodSecurityExpressionHandler();
+  }
 
     @Bean
     public Module javaTimeModule()

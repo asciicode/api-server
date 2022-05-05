@@ -7,7 +7,7 @@ spring:
     mongodb:
       host: 127.0.0.1
       port: 27017
-      database: oauth2
+      database: oauth2xtest
 #      username:
 #      password:
   mvc:
@@ -19,6 +19,7 @@ spring:
 logging:
   level:
     org.springframework.security: DEBUG
+    nz.co.logicongs.tlp: DEBUG
 
 resource-server:
   app:

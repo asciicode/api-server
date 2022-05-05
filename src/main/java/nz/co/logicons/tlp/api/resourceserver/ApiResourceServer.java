@@ -14,7 +14,9 @@ import nz.co.logicons.tlp.core.mongo.MongoDatastore;
 @ComponentScans({
     @ComponentScan(basePackages = "nz.co.logicons.tlp.api"),
     @ComponentScan(basePackages = "nz.co.logicons.tlp.core.config"),
-    @ComponentScan(basePackages = "nz.co.logicons.tlp.core.mongo")
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.core.mongo"),
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.core.rest.controller"),
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.api.service.impl")
 })
 public class ApiResourceServer {
   private static final Logger LOGGER = LoggerFactory.getLogger(ApiResourceServer.class);

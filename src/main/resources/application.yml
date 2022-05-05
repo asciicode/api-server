@@ -7,9 +7,12 @@ spring:
     mongodb:
       host: 127.0.0.1
       port: 27017
-      database: oauth2
+      database: oauth2x
 #      username:
 #      password:
+  mvc:
+    async:
+      request-timeout: 300000 # 5 mins
   jackson:
     property-naming-strategy: SNAKE_CASE
 

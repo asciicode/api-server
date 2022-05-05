@@ -10,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -18,11 +20,18 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import nz.co.logicons.tlp.core.mongo.MongoDatastore;
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = ConferenceController.class)
 @AutoConfigureMockMvc
 @EnableWebMvc
 // @EnableAutoConfiguration
+@ComponentScans({
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.api"),
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.core.config"),
+    @ComponentScan(basePackages = "nz.co.logicons.tlp.core.mongo")
+})
 public class ConferenceControllerTest
 {
   private static final String apiPrefix = API.VERSIONED_PATH + "/distanceLog";
@@ -31,6 +40,9 @@ public class ConferenceControllerTest
 
   // @Autowired
   private MockMvc mockMvc;
+
+  @Autowired
+  private MongoDatastore datastore;
 
   @BeforeEach
   public void init()
