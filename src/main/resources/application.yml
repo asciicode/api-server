@@ -1,0 +1,24 @@
+server:
+  port: 8082
+  context-path: /api-service
+
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: oauth2
+#      username:
+#      password:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+resource-server:
+  app:
+    client-id: web-client
+    client-secret: web-client-secret
+    check-token-endpoint-url: http://localhost:8081/oauth2-service/oauth/check_token
